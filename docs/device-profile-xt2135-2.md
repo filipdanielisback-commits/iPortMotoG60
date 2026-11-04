@@ -2,15 +2,18 @@
 
 **Project:** iPortMotoG60  
 **Target device:** Motorola Moto G60 XT2135-2  
+**Reported Android version:** Android 12  
+**Reported build number:** `S2RIS32.32-20-9-9-2-3`  
 **Research status:** Preliminary; host-side research only  
 **Last reviewed:** 2026-11-04
 
-## Identity
+## Identity and installed software
 
 - Exact model supplied by the project owner: **XT2135-2**.
 - Motorola conformity documentation identifies XT2135-2 as **Moto G60 Vision** in that listing.
+- The owner reports Android 12 and build `S2RIS32.32-20-9-9-2-3`.
+- A Motorola kernel-source release reference exists for the exact XT2135-2 build string. This is a useful source-matching lead, not proof that a particular downloaded source archive has been independently inspected or built.
 - Public Android device trees group Moto G60 and Moto G40 Fusion under the device codename **hanoip**. This family-level codename does not, by itself, prove that every firmware, partition layout, peripheral, or boot detail is identical across model variants.
-- The installed software build on this particular handset has not yet been recorded.
 
 ## Hardware facts: provisional
 
@@ -26,22 +29,22 @@ Community-maintained Android device trees and recovery metadata report the follo
 
 Do not treat family-level device-tree values as verified XT2135-2 hardware specifications until corroborated by Motorola documentation or variant-specific source.
 
-## Android source references
+## Android and kernel source references
 
 - Hanoip device tree: https://github.com/motorola-sm6150-devs/device_motorola_hanoip
 - Hanoip device configuration: https://github.com/motorola-sm6150-devs/device_motorola_hanoip/blob/lineage-20/BoardConfig.mk
 - Motorola kernel source organization: https://github.com/MotorolaMobilityLLC
+- Motorola kernel source issue referencing XT2135-2 build `S2RIS32.32-20-9-9-2-3`: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
 
 The cited device tree is an Android build configuration. Its values describe that Android build target; they do not demonstrate XNU compatibility or prove that a non-Android kernel can be accepted by the handset's boot chain.
 
 ## Unknowns to resolve
 
-1. Exact Android build number and security patch level on the XT2135-2.
-2. Exact regional software channel and firmware package identity.
-3. Which public kernel-source revision corresponds to that firmware build.
-4. Variant-specific boot image and device-tree documentation.
-5. Verified-boot policy and documented recovery path.
-6. Whether any safe, documented boot handoff mechanism exists for this model.
+1. Exact regional software channel and firmware package identity.
+2. Whether the Motorola kernel source associated with the exact build is available and what revision it contains.
+3. Variant-specific boot image and device-tree documentation.
+4. Verified-boot policy and documented recovery path.
+5. Whether any safe, documented boot handoff mechanism exists for this model.
 
 ## Project safety boundary
 
