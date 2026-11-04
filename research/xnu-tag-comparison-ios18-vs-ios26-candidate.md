@@ -47,7 +47,7 @@ The comparison does **not** reveal Hanoip support being added to XNU:
 - Generic ARM64 startup code is not a substitute for board-specific boot integration, interrupt-controller support, clocks, power management, storage, display, touch, audio, camera, modem, Wi-Fi, and other device support.
 - A kernel source tag alone does not provide the proprietary iOS userspace, frameworks, services, firmware, or signing and boot infrastructure needed for a complete iOS system.
 
-**Conclusion:** These two XNU snapshots provide useful research references, but the comparison supplies no evidence that either one can boot on the Moto G60. Genuine iOS 26 operation on XT2135-2 remains unimplemented and un demonstrated in this project.
+**Conclusion:** These two XNU snapshots provide useful research references, but the comparison supplies no evidence that either one can boot on the Moto G60. Genuine iOS 26 operation on XT2135-2 remains unimplemented and has not been demonstrated in this project.
 
 ## 5. Sources
 
