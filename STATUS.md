@@ -16,6 +16,7 @@
 - [x] Selected display, touchscreen, audio, sensor, camera, NFC and battery/thermal device-tree descriptions inspected.
 - [x] XNU public source inspected for ARM64 initialization, platform-expert startup and IOKit initialization.
 - [x] Preliminary Linux-hardware-to-XNU gap analysis documented.
+- [x] Read-only Hanoip hardware-to-XNU driver compatibility audit completed; unsupported and unknown subsystems are explicitly distinguished.
 - [x] Source register updated with primary source links.
 - [x] Work kept computer-only and non-destructive.
 
@@ -23,6 +24,7 @@
 - [Device profile](../docs/device-profile-xt2135-2.md)
 - [Kernel and XNU comparison](kernel-xnu-comparison.md)
 - [Hardware inventory and XNU gap analysis](hardware-inventory-xnu-gap-analysis.md)
+- [Hanoip-to-XNU driver compatibility audit](hanoip-xnu-driver-compatibility-audit.md)
 - [Source register](source-register.md)
 
 ## Not working / not demonstrated
@@ -44,13 +46,14 @@ The existence of ARM64 support in XNU does not establish compatibility with this
 - [ ] **Phase 3 — Platform research:** map the base device tree, CPU/SoC startup assumptions, memory map, interrupt controller, timers and clocks.
 - [ ] Determine which Hanoip board overlay applies to XT2135-2 using reliable documentation, without changing the phone.
 - [ ] Trace Linux driver source paths for the major peripherals and record their hardware interfaces.
-- [ ] Compare each required subsystem with public XNU platform and IOKit interfaces.
+- [x] Compare each inventoried subsystem with inspected public XNU platform and IOKit paths; no Hanoip-specific driver set was identified in the inspected sources.
+- [ ] Extend the audit to boot-critical memory, GIC/interrupt controller, timers, clocks, pinctrl/GPIO, regulators, UFS and USB implementation paths.
 - [ ] Identify public documentation/specifications needed for any possible independent driver implementation.
 - [ ] Maintain a feasibility and recovery-risk assessment before considering any device-side work.
 
 ## Next milestone
 
-Produce a source-backed **platform bring-up requirements document** covering early ARM64 startup, memory, interrupts, timers, clocks, GPIO and storage. Keep this milestone strictly read-only; do not flash, unlock, repartition or boot experimental images.
+Produce a source-backed **boot-critical platform requirements document** covering early ARM64 startup, memory map, GIC/interrupt controller, timers, clocks, pinctrl/GPIO, regulators, UFS and USB. Keep this milestone strictly read-only; do not flash, unlock, repartition or boot experimental images.
 
 ## Safety and scope
 
