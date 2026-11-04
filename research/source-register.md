@@ -29,6 +29,22 @@ The package naming suggests the RETEU / Europe channel. Treat this as a lead to 
 | https://github.com/motorola-sm6150-devs/device_motorola_hanoip/blob/lineage-20/BoardConfig.mk | Android build values such as ARM64 target, board platform label, boot image configuration | Values are Android build settings, not a bootloader compatibility guarantee |
 | https://github.com/motorola-sm6150-devs/kernel_motorola_sm6150 | Community Android kernel source repository | Linux kernel source, not an XNU port |
 
+
+## Exact XT2135-2 kernel source inspection (2026-11-04)
+
+| Source | What was inspected | Findings and limits |
+|---|---|---|
+| https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3 | Release tag matching the owner's exact build | Release is linked by Motorola contributor from issue #574; tag title describes a Hanoip Android 12 push |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/Makefile | Root kernel Makefile at matching tag | Identifies Linux 4.14.190; this is Linux, not XNU |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/Makefile | Qualcomm device-tree build list | Contains Hanoip DTB/DTBO build entries for EVT1, DVT1 and DVT2 variants |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-evt1-overlay.dts | Hanoip EVT1 overlay | Declares model `hanoip`, MSM ID 365, board ID 0x4C/0xA100 |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt1-overlay.dts | Hanoip DVT1 overlay | Declares model `hanoip`, MSM ID 365, board ID 0x4C/0xB100 |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt2-overlay.dts | Hanoip DVT2 overlay | Declares model `hanoip`, MSM ID 365, board ID 0x4C/0xB200 |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-common-overlay.dtsi | Shared Hanoip device-tree overlay | References panel, audio, fingerprint, battery/thermal, sensor, touchscreen and NFC configuration; does not itself prove exact fitted components or supply XNU drivers |
+| https://github.com/apple-oss-distributions/xnu/blob/main/README.md | Apple's public XNU README | Describes XNU and states ARM64 architecture support; architecture support is not board-specific Hanoip support |
+
+Detailed findings and limitations: [kernel/XNU comparison](kernel-xnu-comparison.md).
+
 ## Evidence labels
 
 - **Primary:** manufacturer documentation or source code published by the manufacturer.
