@@ -1,5 +1,7 @@
 # Research Notes
 
+> Project progress: [Working / Not Working / In Development](STATUS.md).
+
 Use this directory for source-backed research. Prefer primary sources such as official device documentation, upstream source repositories, and maintainer documentation.
 
 ## Research priorities
