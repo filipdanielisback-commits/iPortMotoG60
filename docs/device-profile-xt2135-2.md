@@ -12,7 +12,7 @@
 - Exact model supplied by the project owner: **XT2135-2**.
 - Motorola conformity documentation identifies XT2135-2 as **Moto G60 Vision** in that listing.
 - The owner reports Android 12 and build `S2RIS32.32-20-9-9-2-3`.
-- A Motorola kernel-source release reference exists for the exact XT2135-2 build string. This is a useful source-matching lead, not proof that a particular downloaded source archive has been independently inspected or built.
+- Motorola's issue #574 links a published kernel source release for the exact XT2135-2 build string. The matching release tag is `MMI-S2RIS32.32-20-9-9-2-3`; its root Makefile was inspected and identifies Linux 4.14.190. This confirms a matching Linux source release exists, but does not establish a successful build or XNU compatibility.
 - Public Android device trees group Moto G60 and Moto G40 Fusion under the device codename **hanoip**. This family-level codename does not, by itself, prove that every firmware, partition layout, peripheral, or boot detail is identical across model variants.
 
 ## Hardware facts: provisional
@@ -35,13 +35,15 @@ Do not treat family-level device-tree values as verified XT2135-2 hardware speci
 - Hanoip device configuration: https://github.com/motorola-sm6150-devs/device_motorola_hanoip/blob/lineage-20/BoardConfig.mk
 - Motorola kernel source organization: https://github.com/MotorolaMobilityLLC
 - Motorola kernel source issue referencing XT2135-2 build `S2RIS32.32-20-9-9-2-3`: https://github.com/MotorolaMobilityLLC/kernel-msm/issues/574
+- Matching published kernel source tag: https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-S2RIS32.32-20-9-9-2-3
+- Detailed kernel/XNU comparison: [research/kernel-xnu-comparison.md](../research/kernel-xnu-comparison.md)
 
 The cited device tree is an Android build configuration. Its values describe that Android build target; they do not demonstrate XNU compatibility or prove that a non-Android kernel can be accepted by the handset's boot chain.
 
 ## Unknowns to resolve
 
 1. Exact regional software channel and firmware package identity.
-2. Whether the Motorola kernel source associated with the exact build is available and what revision it contains.
+2. Which Hanoip board overlay corresponds to this exact handset's hardware revision.
 3. Variant-specific boot image and device-tree documentation.
 4. Verified-boot policy and documented recovery path.
 5. Whether any safe, documented boot handoff mechanism exists for this model.
