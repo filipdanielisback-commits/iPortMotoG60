@@ -45,6 +45,24 @@ The package naming suggests the RETEU / Europe channel. Treat this as a lead to 
 
 Detailed findings and limitations: [kernel/XNU comparison](kernel-xnu-comparison.md).
 
+
+## Hardware inventory and XNU comparison (2026-11-04)
+
+Detailed inventory and gap analysis: [hardware-inventory-xnu-gap-analysis.md](hardware-inventory-xnu-gap-analysis.md).
+
+| Source | Inspected evidence | Limitation |
+|---|---|---|
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-evt1-overlay.dts | Hanoip EVT1 overlay, MSM ID 365, board ID 0x4C/0xA100 | Does not prove this is the board revision in the owner's handset |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt1-overlay.dts | Hanoip DVT1 overlay, board ID 0x4C/0xB100 | Same variant-identification limitation |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-dvt2-overlay.dts | Hanoip DVT2 overlay, board ID 0x4C/0xB200 | Same variant-identification limitation |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/hanoi-panel.dtsi | Tianma ILI7807S 678 / 1080×2460 DSI panel description | Source configuration, not live panel identification |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoi-touchscreen.dtsi | Ilitek SPI touchscreen node | No XNU driver identified |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-audio-overlay.dtsi | WCD9375 sound-card configuration | No XNU audio stack identified |
+| https://github.com/MotorolaMobilityLLC/kernel-msm/blob/MMI-S2RIS32.32-20-9-9-2-3/arch/arm64/boot/dts/qcom/sdmmagpie-hanoip-sensor-overlay.dtsi | Semtech SX933x sensor node | Exact fitted sensor not independently confirmed |
+| https://github.com/apple-oss-distributions/xnu/blob/main/pexpert/arm/pe_init.c | ARM platform-expert initialization and device-tree-to-IOKit startup | Generic platform infrastructure, not Hanoip support |
+| https://github.com/apple-oss-distributions/xnu/blob/main/osfmk/arm/arm_init.c | ARM/ARM64 initialization and platform setup flow | Generic kernel initialization, not proof of board compatibility |
+| https://github.com/apple-oss-distributions/xnu/blob/main/iokit/Kernel/IOStartIOKit.cpp | IOKit root nub initialization from device-tree pointer | Generic IOKit startup, not device drivers |
+
 ## Evidence labels
 
 - **Primary:** manufacturer documentation or source code published by the manufacturer.
